@@ -1,0 +1,40 @@
+# Delphi
+*.dcu
+*.ddp
+*.dsk
+*.identcache
+*.local
+*.map
+*.stat
+*.tvsconfig
+*.rsm
+*.drc
+
+# Executáveis
+*.exe
+*.dll
+*.bpl
+
+# Pastas de compilação
+Win32/
+Win64/
+Debug/
+Release/
+
+# Histórico
+__history/
+__recovery/
+
+# Backup
+*.~*
+*.bak
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
