@@ -12,7 +12,9 @@ object FrmPrincipal: TFrmPrincipal
   Font.Style = []
   FormStyle = fsMDIForm
   Menu = MainMenu1
+  OldCreateOrder = True
   Position = poScreenCenter
+  PixelsPerInch = 96
   TextHeight = 40
   object Label1: TLabel
     Left = 20

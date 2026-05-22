@@ -11,9 +11,12 @@ object FrmAPI: TFrmAPI
   Font.Name = 'Segoe UI'
   Font.Style = []
   FormStyle = fsMDIChild
+  OldCreateOrder = True
   Position = poScreenCenter
   Visible = True
+  OnClose = FormClose
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 17
   object PnlSuperior: TPanel
     Left = 0
@@ -25,7 +28,6 @@ object FrmAPI: TFrmAPI
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 624
   end
   object BtnBuscar: TButton
     Left = 15
@@ -52,8 +54,6 @@ object FrmAPI: TFrmAPI
     DefaultRowHeight = 28
     RowCount = 2
     TabOrder = 2
-    ExplicitWidth = 624
-    ExplicitHeight = 381
   end
   object RESTClient1: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'

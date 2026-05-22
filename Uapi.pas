@@ -18,6 +18,7 @@ type
     RESTResponse1: TRESTResponse;
     procedure FormCreate(Sender: TObject);
     procedure BtnBuscarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -64,6 +65,11 @@ begin
     StringGrid1.Cells[4, i + 1] :=
       JSONObject.GetValue<string>('website');
   end;
+end;
+
+procedure TFrmAPI.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      Action := caFree;
 end;
 
 procedure TFrmAPI.FormCreate(Sender: TObject);
