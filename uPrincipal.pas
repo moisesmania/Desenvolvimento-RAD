@@ -3,44 +3,77 @@ unit uPrincipal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
-  Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.Menus, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls;
 
 type
-  TFrmPrincipal = class(TForm)
-    PnlTopo: TPanel;
+  TfrmPrincipal = class(TForm)
     MainMenu1: TMainMenu;
+
     Cadastros1: TMenuItem;
     Alunos1: TMenuItem;
-    Servios1: TMenuItem;
-    APIREST1: TMenuItem;
-    Sair1: TMenuItem;
-    PnlMenu: TPanel;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    procedure APIREST1Click(Sender: TObject);
-  private
-    { Private declarations }
-  public
-    { Public declarations }
+
+    Integracoes1: TMenuItem;
+    UsuariosAPI1: TMenuItem;
+    lblMensagem: TLabel;
+    DBText1: TDBText;
+
+    procedure FormCreate(Sender: TObject);
+
+    procedure Alunos1Click(Sender: TObject);
+    procedure UsuariosAPI1Click(Sender: TObject);
+
+
   end;
 
 var
-  FrmPrincipal: TFrmPrincipal;
+  frmPrincipal: TfrmPrincipal;
 
 implementation
 
-uses
-  uAPI;
-
 {$R *.dfm}
 
-procedure TFrmPrincipal.APIREST1Click(Sender: TObject);
+uses uAlunos, uAPI;
+
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-  FrmAPI := TFrmAPI.Create(Self);
-  FrmAPI.Show;
+
+  WindowState := wsMaximized;
+  Position := poScreenCenter;
+  FormStyle := fsMDIForm;
+
+  // FUNDO
+  Color := clWhite;
+
+  // TEXTO CENTRAL
+  lblMensagem.Caption :=
+    'Gerencie alunos, organize informações e acesse os recursos do sistema de forma rápida e segura.' +
+    sLineBreak + sLineBreak +
+    'Acesse o menu superior para cadastrar, editar e pesquisar os dados do sistema.';
+
+
+end;
+
+procedure TfrmPrincipal.Alunos1Click(Sender: TObject);
+begin
+
+  if not Assigned(frmAlunos) then
+    frmAlunos := TfrmAlunos.Create(Application);
+
+  frmAlunos.Show;
+
+end;
+
+procedure TfrmPrincipal.UsuariosAPI1Click(Sender: TObject);
+begin
+
+  if not Assigned(frmAPI) then
+    frmAPI := TfrmAPI.Create(Application);
+
+  frmAPI.Show;
+
 end;
 
 end.
